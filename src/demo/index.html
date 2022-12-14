@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="../src/jquery.modallink-1.0.0.css" />
+    </head>
+
+    <body>
+
+        <h2>Basic usage</h2>
+        <a href="http://localhost:3000/questionPaper/2e0674c-ee26-d2d-e3cb-17b610e18de" class="modal-link">Open i-frame</a>
+   
+
+
+        <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="../src/jquery.modalLink-1.0.0.js"></script>
+
+        <script type="text/javascript">
+
+            (function () {
+                $(".modal-link").modalLink();
+
+                $(".modal-link-with-data").modalLink({
+                    data: {
+                        foo: "bar"
+                    }
+                });
+
+                $(".modal-link-posting-data").modalLink({
+                    method: "POST",
+                    data: {
+                        foo: "bar"
+                    }
+                });
+
+                $(".btn-click-me").click(function () {
+                    $.modalLink.open("Page1.html", {
+                        title: "Title"
+                    });
+                });
+
+                $(".btn-ref").click(function (e) {
+                    e.preventDefault();
+                    $.modalLink("open", $(".btn-ref"), {
+                        title: "REF demo - type something in textbox and close window"
+                    });
+                });
+
+            })();
+
+        </script>
+
+    </body>
+
+</html>
